@@ -2,31 +2,41 @@
 package masinos;
 
 public class Masinos {
-     //nuvaziuotas kelias
-    //kiekvieno ciklo metu visos masinos turi pavaziuoti nuo tarp 1 ir 1000 km random
-    //lenktynes baigiasi kai bent viena nuvaziuoja 1000 km
-    //kai baigias lenktynes masinos surusuojamos nuvaziuoto kelio mazejimo tvarka
-    //toliausiai nuvaziavus, sarasas kiek kuri nuvaziavo kai yra pasiekta 1000km
-    //nuvaziuoja kas 100km ir atspausdinam kiek nuvaziavo
     
     public static void main(String[] args) {
        int[] masinos = new int [8];
+       //milestone kas 100km issausdina 
+       int interm = 100;
        boolean doRace = true;
        while(doRace){
         //cars moves 10km
-        for(int i = 0; i < masinos.length; i++) {
-            masinos[i] += Math.random() * 10 + 1;
-        }
-        //ar nuline pasieke 1000km? visas tikrina
-        for(int i = 0; i < masinos.length; i++) {
-            if (masinos[i] >= 1000) {
-                System.out.println("Laimejo " + (i+1)+" masina");
-                doRace = false;
-                break;
+            for(int i = 0; i < masinos.length; i++) {
+                masinos[i] += Math.random() * 10 + 1;
             }
-        }
-    } 
-       //rusiavimas
+            //isspausdinimas kas 100km kiek kuri nuvaziavo
+            boolean printInterm = false;
+            for(int i = 0; i < masinos.length; i++) {
+                if(masinos[i] >= interm) {
+                    printInterm = true;
+                    interm += 100;
+                }
+            }
+            if(printInterm) {
+                for(int i = 0; i < masinos.length; i++) {
+                    System.out.print(masinos[i] + "\t");
+                }
+                System.out.println();
+            }
+            //ar nuline pasieke 1000km? visas tikrina 
+            for(int i = 0; i < masinos.length; i++) {
+                if (masinos[i] >= 1000) {
+                    System.out.println("Laimejo " + (i+1)+" masina");
+                    doRace = false;
+                    break;
+                }
+            }
+        } 
+       //rusiavimas nuo didziausio iki maziausio
         for(int i = 0; i < masinos.length - 1; i++) {
             for(int j = i+1; j < masinos.length; j++) {
                 if(masinos[i] < masinos[j]) {
@@ -40,5 +50,4 @@ public class Masinos {
             System.out.println(masinos[i]);
         }
     }
-    
 }
