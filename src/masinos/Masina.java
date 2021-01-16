@@ -13,17 +13,34 @@ public class Masina {
     public int greitis;
     
     public Masina(String pav, int maxGreitis) {
-        this. pav = pav;
-        this. maxGreitis = maxGreitis; //negali virsyti maxGreitis 
+        this.pav = pav;
+        this.maxGreitis = maxGreitis; //negali virsyti maxGreitis 
         this.kelias = 0;
         this.greitis = 0;//neigiamas greitis buti negali
     }
+    public void vaziuok(int kiek) {
+        kelias += kiek;
+    }
+    public void gazuok(int kiek) {
+        if(kiek <= maxGreitis) {
+            kelias += kiek;
+        }
+        if(kiek > maxGreitis) {
+            kelias += maxGreitis;
+        } 
+        if(kiek < 0) {
+            kelias = 0;
+        }
+    }
+    public void stabdyk(int kiek) {
+        kelias -= kiek;
+    }
     /*
     matodas
-    void gazuok(int kiek)
-    voidstabdyk(int kiek)
+    void gazuok(int kiek)+
+    void stabdyk(int kiek)+
     void vaziuok() kai iskvieciamas metodas vaziuok pavaziuoja kelias padideja per tiek koks yra masinos greitis 
-    jei greitis 25 nuvaziuos 25km
+    jei greitis 25 nuvaziuos 25km+
     
     sakom if( Math.random > 0.3) stabdys
     if else (Math.random > tarp 0.3 ir 0.8 gazuos
