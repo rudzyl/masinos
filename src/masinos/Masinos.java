@@ -8,12 +8,13 @@ public class Masinos {
         Masina m2 = new Masina("Antra", 160);
         Masina m3 = new Masina("Trecia", 180);
         Masina m4 = new Masina("Ketvirta", 200);
-
+        SportineMasina s1 = new SportineMasina("Porshe", 300);
+        SportineMasina s2 = new SportineMasina("McLaren", 320);
+        Masina[] race = {m1, m2, m3, m4, s1, s2};
         
-        m3.vaziuok(120);
-        m3.gazuok(180);
-        System.out.println(m3.kelias);
-        Masina[] race = {m1, m2, m3, m4};
+        s1.vaziuok(120);
+        s1.gazuok(290);
+        System.out.println(s1.getKelias());
 //            new SportineMasina("spr1", 300)
 //            new SportineMasina("spr2",300)
         

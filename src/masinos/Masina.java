@@ -3,20 +3,31 @@ package masinos;
 
 public class Masina {
     
-    //private 
-    public String pav;
-    //private 
-    public int maxGreitis; //turis
-    //private 
-    public int kelias; //kiekis
-    //private 
-    public int greitis;
+    private String pav;
+    private int maxGreitis; //turis
+    private int kelias; //kiekis
+    private int greitis;
     
     public Masina(String pav, int maxGreitis) {
         this.pav = pav;
-        this.maxGreitis = maxGreitis; //negali virsyti maxGreitis 
+        this.maxGreitis = maxGreitis;
         this.kelias = 0;
-        this.greitis = 0;//neigiamas greitis buti negali
+        this.greitis = 0;
+    }
+    public String getPav() {
+        return this.pav;
+    }
+    public void setPav(String pav) {
+        this.pav = pav;
+    }
+    public int getMaxGreitis() {
+        return this.maxGreitis;
+    }
+    public int getKelias() {
+        return this.kelias;
+    }
+    public int getGreitis() {
+        return this.greitis;
     }
     public void vaziuok(int kiek) {
         kelias += kiek;
@@ -33,7 +44,9 @@ public class Masina {
         }
     }
     public void stabdyk(int kiek) {
-        kelias -= kiek;
+        if(kiek <= 0) {
+            return;
+        }
     }
     /*
     matodas
@@ -48,16 +61,5 @@ public class Masina {
     30% tikimybe kad stabdys per 1-5 tikimybe
     50% tikimybe kad gazuos per 1-10
     20% tikimybe kad nekeis greicio
-    jei sportine tai 
-    Math.random > 0.5 spoilerio pozicija pasikei padarys nuleista arba pakels
-    50% tikimybe kad pasikeis spolerio pozicija
-    */
-    /*
-    SportineMasina
-    ji turi spoileri, jei true pakeltas false nuleistas
-    grazuok()jei metode jei spoileris nuleistas - gazuoja 2 kart greiciau
-    stabdyk()jei spoileris pakeltas - stabdo 2kartus greiciau
-    
-    
     */
 }
