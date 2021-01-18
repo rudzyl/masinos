@@ -4,8 +4,8 @@ package masinos;
 public class Masina {
     
     private String pav;
-    private int maxGreitis; //turis
-    private int kelias; //kiekis
+    private int maxGreitis; 
+    protected int kelias; 
     private int greitis;
     
     public Masina(String pav, int maxGreitis) {
@@ -29,25 +29,26 @@ public class Masina {
     public int getGreitis() {
         return this.greitis;
     }
-    public void vaziuok(int kiek) {
-        kelias += kiek;
+    public void vaziuok() {
+        this.kelias += this.greitis;
     }
     public void gazuok(int kiek) {
-        if(kiek <= maxGreitis) {
-            kelias += kiek;
+        this.greitis += kiek;
+        if(this.greitis <= this.maxGreitis) {
         }
-        if(kiek > maxGreitis) {
-            kelias += maxGreitis;
+        if(this.greitis > this.maxGreitis) {
+            this.greitis = this.maxGreitis;
         } 
-        if(kiek < 0) {
-            kelias = 0;
+        if(this.greitis < 0) {
+            this.greitis = 0;
         }
     }
     public void stabdyk(int kiek) {
-        if(kiek <= 0) {
-            return;
-        }
+        
+        if(this.greitis <= 0) {
+            
     }
+        
     /*
     matodas
     void gazuok(int kiek)+
@@ -62,4 +63,10 @@ public class Masina {
     50% tikimybe kad gazuos per 1-10
     20% tikimybe kad nekeis greicio
     */
+    }
+    @Override
+        public String toString() {
+        return "Masina{" + "pav=" + pav + ", maxGreitis" + maxGreitis + ". kelias=" + kelias + ", greitis=" + greitis;
+    }
 }
+
